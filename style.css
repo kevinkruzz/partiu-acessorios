@@ -31,9 +31,9 @@ body {
 }
 
 header {
-    padding: 40px 20px;
     text-align: center;
     background: #000000;
+    padding:18px;
 }
 
 .logo {
@@ -56,12 +56,18 @@ header p{
 }
 
 .hero {
-    padding: 60px 20px;     /* Aumentei um pouco o respiro da seção */
+    padding: 10px 10px;     /* Aumentei um pouco o respiro da seção */
     background-color: rgb(252, 200, 28);
 }
 
 .hero-text {
     flex: 1;                /* Faz o texto ocupar o espaço necessário */
+}
+.hero-text p{
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 .hero h1 {
     font-family: "Permanent Marker", cursive;
@@ -76,7 +82,7 @@ header p{
     display: flex;
     flex-direction: column; /* Deixa um botão embaixo do outro */
     gap: 15px;
-    min-width: 250px;
+    min-width: 150px;
 }
 /* Novo Botão do Instagram */
 .btn-instagram {
@@ -86,7 +92,6 @@ header p{
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 50px;
-    font-weight: bold;
     font-size: 18px;
     text-align: center;
     transition: 0.3s;
@@ -207,7 +212,6 @@ header p{
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 50px;
-    font-weight: bold;
     margin-top: 20px;
     transition: 0.3s;
 }

@@ -1,0 +1,346 @@
+:root {
+    --cor-primaria: #ffcc00; 
+    --cor-primaria-opaca: rgba(255, 204, 0, 0.4); 
+    --cor-fundo-externo: #000000; 
+    --cor-fundo-bloco: #0a0a0a;   
+    --cor-texto: #ffffff;
+}
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    padding: 40px 15px; 
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1100px; 
+    margin: 0 auto;
+    background-color: var(--cor-fundo-bloco);
+    box-shadow: 0 0 40px var(--cor-primaria-opaca); 
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+header {
+    padding: 40px 20px;
+    text-align: center;
+    background: #000000;
+}
+
+.logo {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+}
+header p{
+    color: white;
+}
+/* Container Flex para alinhar os lados */
+.hero-container {
+    display: flex;
+    align-items: center;    /* Alinha verticalmente ao centro */
+    justify-content: space-between; /* Texto na esquerda, botões na direita */
+    max-width: 1000px;      /* Largura máxima do conteúdo */
+    margin: 0 auto;         /* Centraliza o container na seção amarela */
+    gap: 30px;
+    text-align: left;       /* Texto alinhado à esquerda no PC */
+}
+
+.hero {
+    padding: 60px 20px;     /* Aumentei um pouco o respiro da seção */
+    background-color: rgb(252, 200, 28);
+}
+
+.hero-text {
+    flex: 1;                /* Faz o texto ocupar o espaço necessário */
+}
+.hero h1 {
+    font-family: "Permanent Marker", cursive;
+    color: #000000;
+    margin-bottom: 0;       /* Removi a margem para alinhar melhor com os botões */
+    font-size: 45px;        /* Aumentei um pouco para dar mais impacto */
+    line-height: 1.1;
+}
+
+/* Lado dos Botões */
+.hero-btns {
+    display: flex;
+    flex-direction: column; /* Deixa um botão embaixo do outro */
+    gap: 15px;
+    min-width: 250px;
+}
+/* Novo Botão do Instagram */
+.btn-instagram {
+    display: inline-block;
+    background-color: #030303; /* Preto para contrastar com o amarelo e o verde */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    transition: 0.3s;
+}
+.btn-instagram:hover {
+    transform: scale(1.05);
+    background-color: #ffffff;
+    color: black;
+}
+
+/* AJUSTE PARA CELULAR */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column; /* Empilha no celular */
+        text-align: center;     /* Centraliza o texto no celular */
+    }
+
+    .hero h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .hero-btns {
+        width: 100%;            /* Botões ocupam largura total no celular */
+    }
+}
+
+/* ESTILO DO CARROSSEL */
+.loja-fotos {
+    background: #000;
+    border: 10px solid ;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    flex-shrink: 0;
+    cursor: pointer;
+    max-height: 500px; /* Mantém a altura máxima para não quebrar o layout */
+    
+    /* ESTA É A MUDANÇA PRINCIPAL */
+    object-fit: contain; /* Ajusta a foto para caber inteira no espaço, sem cortes */
+    
+    background-color: #000000;
+}
+
+/* MODAL (LIGHTBOX) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.95);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 10px;
+    border: 2px solid var(--cor-primaria);
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* ASSISTENCIA E FOOTER */
+.assistencia {
+    background-color: #fffefe;
+    padding: 0px;
+    text-align: center;
+
+}
+.text-assist{
+    padding: 30px ;
+    background-color:rgb(252, 200, 28);
+}
+.text-assist h2{
+    font-family: "Permanent Marker", cursive;
+    font-weight: 450;
+    font-style: normal;
+    color: #000000;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+.img-assist img{
+    margin-top: 30px;
+    width: 80%;
+    border-radius: 30px;
+    border: 7px solid rgb(0, 0, 0);
+    background-color: rgb(252, 200, 28);
+}
+
+
+.btn-whatsapp {
+    display: inline-block;
+    background-color: #25d366;
+    font-size: 18px;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-whatsapp:hover { 
+    transform: scale(1.1);
+    background-color: #000;
+    
+
+ }
+
+footer {
+    padding: 60px 40px;
+    background: #ecebeb;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative; /* Garante que os botões fiquem presos ao container */
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: var(--cor-primaria);
+    font-weight: bold;
+    font-size: 24px;
+    border: none;
+    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    user-select: none;
+    transition: 0.3s ease;
+    border-radius: 0 5px 5px 0;
+    z-index: 5;
+}
+
+.next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.prev:hover, .next:hover {
+    background-color: var(--cor-primaria);
+    color: #000;
+}
+
+/* Container que deixa os itens lado a lado */
+.contatos-flex {
+    display: flex;
+    justify-content: center; /* Centraliza o bloco na tela */
+    gap: 40px;               /* Espaço entre um endereço e outro */
+    flex-wrap: wrap;         /* Se a tela for pequena (celular), um vai para baixo do outro */
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+/* Estilo individual para cada bloco de endereço */
+.contato-item1, .contato-item2 {
+    flex: 1;                 /* Faz com que ambos tentem ocupar o mesmo espaço */
+    max-width: 400px;        /* Evita que fiquem esticados demais em telas gigantes */
+    text-align: center;
+    min-width: 250px;        /* Garante que no celular eles não fiquem esmagados */
+}
+
+.contatos-flex h3 {
+    margin-bottom: 10px;
+    color: #000;             /* Ajuste conforme sua preferência de cor */
+}
+
+/* Container que alinha os mapas */
+.mapas-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* No telemóvel, o segundo mapa vai para baixo */
+    margin: 30px auto;
+    max-width: 1000px;
+    padding: 0 20px;
+}
+/* Container dos botões de WhatsApp */
+.botoes_zap {
+    display: flex;
+    justify-content: center; /* Centraliza no PC */
+    gap: 20px;               /* Espaçamento entre os dois blocos */
+    flex-wrap: wrap;         /* Permite quebrar linha no celular */
+    margin-top: 20px;
+}
+
+/* Ajuste nos itens individuais de contato */
+.botoes_zap .contato-item {
+    margin-top: 0 !important; /* Remove o margin-top que estava direto no HTML */
+    flex: 1;
+    min-width: 250px;         /* Garante que não fiquem esmagados */
+    max-width: 350px;         /* Limita o tamanho para não ficarem gigantes no PC */
+}
+
+/* Ajuste no botão para ele não ocupar 100% da largura se não for necessário */
+.btn-whatsapp {
+    width: auto;
+    padding: 10px 20px;
+}
+/* Cada bloco de mapa individual */
+.mapa-item {
+    flex: 1;
+    min-width: 300px; /* Largura mínima para não ficar muito pequeno no telemóvel */
+    max-width: 480px;
+}
+
+.mapa-item h4 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Efeito de sombra para combinar com o seu tema */
+.mapa-item iframe {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Opcional: destaque ao passar o rato */
+.mapa-item iframe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px var(--cor-primaria-opaca);
+}
+
+.mapa-container { margin: 30px auto; max-width: 800px; }
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 1.8rem; }
+    .grid-produtos { padding: 20px; }
+}

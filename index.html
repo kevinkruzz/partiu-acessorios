@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partiu Acessórios - Ouro Fino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-container">
+
+        <header>
+            <img src="img/logo.png" alt="Partiu Acessórios" class="logo">
+            <p>O melhor preço em acessórios e assistência técnica de confiança</p>
+        </header>
+
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <h1>A Maior Referência <br> em Celulares da Região</h1>
+                </div>
+
+                <div class="hero-btns">
+                    <a href="https://wa.me/5535997151351" class="btn-whatsapp" target="_blank">Chamar no WhatsApp</a>
+                    <a href="https://www.instagram.com/partiu_acessorios_oficial/" class="btn-instagram" target="_blank">Siga no Instagram</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="loja-fotos">
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="img_lj/1.jpg" alt="Interior da Loja" onclick="openModal(this.src)">
+                    <img src="img_lj/2.jpg" alt="Fachada" onclick="openModal(this.src)">
+                    <img src="img_lj/3.jpg" alt="Bancada de Assistência" onclick="openModal(this.src)">
+                    <img src="img_lj/4.jpg" alt="Bancada de Assistência" onclick="openModal(this.src)">
+                    <img src="img_lj/5.jpg" alt="Bancada de Assistência" onclick="openModal(this.src)">
+                    <img src="img_lj/6.jpg" alt="Bancada de Assistência" onclick="openModal(this.src)">
+                    <img src="img_lj/7.jpg" alt="Bancada de Assistência" onclick="openModal(this.src)">
+                </div>
+                    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                    <button class="next" onclick="changeSlide(1)">&#10095;</button>     
+            </div>
+        </section>
+        <section class="assistencia">
+            <div class="text-assist">
+                <h2>Assistência Técnica Especializada<br></h2>
+                <p>Consertos rápidos, troca de tela, bateria e conectores com garantia.</p>
+            </div>
+            <div class="img-assist">
+                <img src="img/assistencia.jpg" alt="Partiu Acessórios">
+            </div>
+        </section>
+        <footer>
+            <div class="contatos-flex">
+                <div class="contato-item1">
+                    <h3>Loja 1</h3>
+                    <p>📍 <strong>Endereço:</strong> Rua Senador Miranda Junior, 229 - Centro</p>
+                    <p>Ouro Fino - MG</p>
+                </div>
+                <div class="contato-item2">
+                    <h3>Loja 2</h3>
+                    <p>📍 <strong>Endereço:</strong> Rua Americo Prado, 756 - Centro</p>
+                    <p>Jacutinga - MG</p>
+                </div>
+            </div>
+
+           <div class="mapas-group">
+                <div class="mapa-item">
+                    <h4>Loja 1</h4>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!4v1775234478181!6m8!1m7!1sjUhCy_wJYkjgGo6W8p3o5Q!2m2!1d-22.27901937990073!2d-46.37106781192253!3f161.97423849614196!4f-8.914859482296947!5f1.7564539258764649" 
+                        width="100%" height="250" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+
+                <div class="mapa-item">
+                    <h4>Loja 2</h4>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!4v1775234334700!6m8!1m7!1si2ZyhzEVO-mKM4TUxEoTAg!2m2!1d-22.28915027459695!2d-46.61306748836063!3f318.4223449754331!4f-3.598578896150272!5f1.096327182775434" 
+                        width="100%" height="250" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+            <div class="botoes_zap">
+                <div class="contato-item"> <p>📞 <strong>WhatsApp:</strong> (35) 99715-1351</p>
+                    <a href="https://wa.me/5535997151351" class="btn-whatsapp" target="_blank">Chamar no WhatsApp</a>
+                </div>
+                <div class="contato-item"> <p>📞 <strong>WhatsApp:</strong> (35) 99737-6385</p>
+                    <a href="https://wa.me/5535997376385" class="btn-whatsapp" target="_blank">Chamar no WhatsApp</a>
+                </div>
+            </div>
+        </footer>
+        <footer class="site-footer">
+            <div class="assinatura-criador">
+                <p>© 2026 Partiu Acessórios. Todos os direitos reservados.</p>
+                <p class="dev-by">Desenvolvido por 
+                    <a href="https://www.instagram.com/Lordvaldemiru" target="_blank">
+                        <strong>KevinCruzz</strong>
+                    </a>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="myModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="imgModal">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

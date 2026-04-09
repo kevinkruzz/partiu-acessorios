@@ -4,6 +4,7 @@
     --cor-fundo-externo: #000000; 
     --cor-fundo-bloco: #0a0a0a;   
     --cor-texto: #ffffff;
+    --sidebar-width: 280px;
 }
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
@@ -19,7 +20,118 @@ body {
     background-color: rgb(0, 0, 0);
     padding: 40px 15px; 
 }
+section {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+/* Botão Flutuante (Hambúrguer) */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    width: 45px;
+    height: 45px;
+    background: var(--cor-primaria);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
 
+.sidebar-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #000;
+    transition: 0.3s;
+}
+
+/* Estilo da Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: calc(-1 * var(--sidebar-width)); /* Escondida */
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: #111;
+    z-index: 1002;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid var(--cor-primaria);
+}
+
+.sidebar.active {
+    left: 0; /* Mostra a sidebar */
+}
+
+.sidebar-logo img {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 12px 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-menu a:hover {
+    background: var(--cor-primaria-opaca);
+    color: var(--cor-primaria);
+    transform: translateX(10px);
+}
+
+.sidebar-btn-zap {
+    background: #25d366 !important;
+    color: #000 !important;
+    font-weight: bold;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+/* Overlay Escuro */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1001;
+    display: none;
+    backdrop-filter: blur(3px);
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+/* Ajuste do botão quando aberto */
+.sidebar.active ~ .sidebar-toggle span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.sidebar.active ~ .sidebar-toggle span:nth-child(2) { opacity: 0; }
+.sidebar.active ~ .sidebar-toggle span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+/* Esconder sidebar no PC se quiser deixar o site limpo, ou manter */
+@media (max-width: 480px) {
+    .sidebar { width: 80%; }
+}
 .main-container {
     width: 100%;
     max-width: 1100px; 
@@ -203,6 +315,110 @@ header p{
     background-color: rgb(252, 200, 28);
 }
 
+/* Container dos Cards */
+.cards-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 2800px;
+    margin: 0 auto;
+}
+
+/* Base do Card */
+.cards-services-card {
+    height: 300px; /* Altura fixa para o efeito de giro */
+    perspective: 1000px; /* Necessário para o efeito 3D */
+    cursor: pointer;
+}
+
+
+/* O container que realmente gira */
+.flip {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.cards-services-card:hover .flip {
+    transform: rotateY(180deg);
+}
+
+/* Estilo das faces Frontal e Traseira */
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Esconde a face oposta ao girar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 2px solid #eee;
+}
+
+/* Lado da Frente */
+.front {
+    background-color: #fff;
+    color: #333;
+}
+
+.front img {
+    width: 60px;
+    margin-bottom: 15px;
+}
+
+/* Lado de Trás (Conteúdo Oculto) */
+.back {
+    background-color: var(--cor-primaria); /* Usa o amarelo do seu tema */
+    color: #000;
+    transform: rotateY(180deg); /* Já começa invertido */
+    text-align: center;
+}
+
+.back p {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.back span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.cards-devices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+.cards-devices-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    width: 180px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.cards-devices-card:hover {
+    transform: translateY(-10px);
+    background-color: var(--cor-primaria-opaca);
+}
+
+.services-card-image {
+    width: 50px;
+    margin-bottom: 10px;
+}
 
 .btn-whatsapp {
     display: inline-block;
@@ -222,6 +438,12 @@ header p{
     
 
  }
+ .cta-final {
+  text-align: center;
+  padding: 60px 20px;
+  background: #000;
+  color: #fff;
+}
 
 footer {
     padding: 60px 40px;
@@ -260,7 +482,67 @@ footer {
     background-color: var(--cor-primaria);
     color: #000;
 }
+/*SOBRE*/
+.sobre {
+    padding: 80px 20px;
+    background: #0f0f0f;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+  }
 
+  .container-sobre {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .titulo {
+    font-size: 36px;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+
+  .descricao {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #cfcfcf;
+  }
+
+  .destaque {
+    color: #ffffff;
+    font-weight: 500;
+    margin-top: 30px;
+  }
+
+  .cta {
+    margin-top: 40px;
+  }
+
+  .botao {
+    display: inline-block;
+    padding: 14px 30px;
+    background: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
+  }
+
+  .botao:hover {
+    background: #cccccc;
+  }
+
+  @media (max-width: 600px) {
+    .titulo {
+      font-size: 26px;
+    }
+
+    .descricao {
+      font-size: 16px;
+    }
+  }
 /* Container que deixa os itens lado a lado */
 .contatos-flex {
     display: flex;

@@ -58,7 +58,9 @@ section {
     width: var(--sidebar-width);
     height: 100vh;
     background: #111;
-    z-index: 1002;
+    width: 250px; /* Largura padrão no PC */
+    z-index: 2000; /* Garante que fique acima de tudo */
+    /* ... outros estilos que já enviamos ... */
     transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     padding: 30px;
     display: flex;
@@ -129,8 +131,20 @@ section {
 .sidebar.active ~ .sidebar-toggle span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
 
 /* Esconder sidebar no PC se quiser deixar o site limpo, ou manter */
-@media (max-width: 480px) {
-    .sidebar { width: 80%; }
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80%; /* No celular ela ocupa quase a tela toda ao abrir */
+        left: -80%; /* Esconde ela baseada na nova largura */
+    }
+    
+    .sidebar.active {
+        left: 0;
+    }
+
+    /* IMPORTANTE: Evita que o site "encolha" quando a sidebar abre */
+    body.sidebar-active {
+        overflow: hidden; /* Opcional: trava o scroll do fundo ao abrir */
+    }
 }
 .main-container {
     width: 100%;

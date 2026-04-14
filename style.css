@@ -640,6 +640,9 @@ footer {
 
 .mapa-container { margin: 30px auto; max-width: 800px; }
 
+.assinatura-criador p{
+    font-size: 14px;
+}
 @media (max-width: 768px) {
     .hero h1 { font-size: 1.8rem; }
     .grid-produtos { padding: 20px; }
